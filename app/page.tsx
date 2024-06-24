@@ -22,6 +22,8 @@ export default async function Index() {
             {<SignUpUserLink />}
           </main>
         </div>
+
+        <footer className="w-full border-t border-t-foreground/10 p-8 flex justify-center text-center text-xs"></footer>
       </div>    
     )
   }
@@ -34,6 +36,8 @@ export default async function Index() {
           <h2 className="font-bold text-4xl mb-4">Recomendaciones de Series</h2>
           <SeriesList />
       </div>
+
+      <footer className="w-full border-t border-t-foreground/10 p-8 flex justify-center text-center text-xs"></footer>
     </div>
   );
 }
