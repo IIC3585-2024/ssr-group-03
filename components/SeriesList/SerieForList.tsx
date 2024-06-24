@@ -10,7 +10,7 @@ export default function SerieForList({ serie }: { serie: Serie }) {
             <img
                 src={serie.image}
                 alt={`Poster de ${serie.name}`}
-                className="w-64 h-60 bg-white"
+                className="w-64 bg-white object-contain"
             />
             <div className="flex-1 flex flex-col gap-4">
                 <h1 className="text-2xl">{serie.name}</h1>
