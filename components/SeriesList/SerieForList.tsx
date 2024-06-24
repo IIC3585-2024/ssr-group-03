@@ -2,6 +2,8 @@ interface Serie {
     name: string;
     image: string;
     description: string;
+    stars: number;
+    n_reviews: number;
 }
 
 export default function SerieForList({ serie }: { serie: Serie }) {
@@ -17,8 +19,8 @@ export default function SerieForList({ serie }: { serie: Serie }) {
                 <p>{serie.description}</p>
                 <p>
                     <span className="text-yellow-500">★ </span> 
-                    <span>1.2 </span> 
-                    <span className="text-gray-500">(5)</span>
+                    <span>{serie.stars} </span> 
+                    <span className="text-gray-500">({serie.n_reviews})</span>
                 </p>
             </div>
         </div>
