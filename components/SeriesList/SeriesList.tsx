@@ -68,6 +68,11 @@ export default function SeriesList() {
           </select>
         </div>
       </div>
+      {
+        filteredSeries.length === 0 && (
+          <p>No se encontraron series</p>
+        )
+      }
       <ul className="flex flex-col gap-10">        
         {filteredSeries.map((serie) => (
           <li key={serie.id}>
