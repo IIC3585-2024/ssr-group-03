@@ -1,5 +1,16 @@
 'use client';
 
+interface Serie {
+  id: string;
+  name: string;
+  streaming_service: string;
+  category: string;
+  image: string;
+  description: string;
+  stars: number;
+  n_reviews: number;
+}
+
 import { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
 import SerieForList from "@/components/SeriesList/SerieForList";
@@ -7,12 +18,12 @@ import SerieForList from "@/components/SeriesList/SerieForList";
 const supabase = createClient();
 
 export default function SeriesList() {
-  const [series, setSeries] = useState([]);
+  const [series, setSeries] = useState<Serie[]>([]);
   const [filterName, setFilterName] = useState('');
   const [filterStreamingService, setFilterStreamingService] = useState('');
   const [filterCategory, setFilterCategory] = useState('');
   const [filterStars, setFilterStars] = useState(0);
-  const [filteredSeries, setFilteredSeries] = useState([]);
+  const [filteredSeries, setFilteredSeries] = useState<Serie[]>([]);
   useEffect(() => {
     const fetchSeries = async () => {
       const { data, error } = await supabase.from("series").select("*");
