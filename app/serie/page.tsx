@@ -1,6 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import BackButton from "@/components/BackButton";
+import CreateReviewButton from "@/components/CreateReviewButton";
 
 export default async function SeriePage({
     searchParams,
@@ -60,22 +61,30 @@ export default async function SeriePage({
                 <p>Cantidad de Temporadas: {serie.n_seasons}</p>
                 <p>Cantidad de Capítulos por Temporada: {serie.n_chapter_by_season}</p>
                 <p>Categorias: {serie.category}</p>
+                <div className="flex justify-center items-center">
+                    <CreateReviewButton serieId={serie.id} />
+                </div>
                 <h2 className="font-bold text-4xl mt-10">Reseñas</h2>
                 <div className="flex flex-col gap-8">
-                    {reviews.map((review) => (
-                        <div key={review.id} className="flex flex-col gap-2">
-                            <h3 className="text-xl">{review.email}</h3>
-                            <p>{review.comment}</p>
-                            <p>
-                                <span className="text-yellow-500">★ </span> 
-                                <span>{review.stars} </span> 
-                            </p>
-                        </div>
-                    ))}
+                    {
+                        reviews.length === 0 ? (
+                            <p>No hay reseñas para esta serie</p>
+                        ) : (
+                            reviews.map(review => (
+                                <div key={review.id} className="flex flex-col gap-2">
+                                    <p>{review.email}</p>
+                                    <p>
+                                        <span className="text-yellow-500 text-xl">★ </span>
+                                        <span>{review.stars}</span>
+                                    </p>
+                                    <p>{review.comment}</p>
+                                </div>
+                            ))
+                        )
+                    }
                 </div>
             </main>
             </div>
-
             <footer className="w-full border-t border-t-foreground/10 p-8 flex justify-center text-center text-xs"></footer>
         </div>
     );
