@@ -2,6 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import BackButton from "@/components/BackButton";
 import CreateReviewButton from "@/components/CreateReviewButton";
+import Review from "@/types/Review";
 
 export default async function SeriePage({
     searchParams,
@@ -32,12 +33,15 @@ export default async function SeriePage({
         `)
         .eq('reviews.serie_id', searchParams.id);
 
-    const reviews = profiles.flatMap(profile => 
-        profile.reviews.map(review => ({
+    let reviews = [];
+    if (profiles) {
+        reviews = profiles.flatMap(profile => 
+        profile.reviews.map((review: Review) => ({
             ...review,
             email: profile.email,
         }))
-    );
+        );
+    }
 
     return (
         <div className="flex-1 w-full flex flex-col gap-20 items-center">
