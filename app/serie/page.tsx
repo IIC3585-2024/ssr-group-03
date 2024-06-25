@@ -57,7 +57,7 @@ export default async function SeriePage({
                 />
                 <p>
                     <span className="text-yellow-500 text-xl">★ </span> 
-                    <span>{serie.stars} </span> 
+                    <span>{serie.stars.toFixed(1)} </span> 
                     <span className="text-gray-500">({serie.n_reviews})</span>
                 </p>
                 <p>{serie.description}</p>
@@ -79,7 +79,7 @@ export default async function SeriePage({
                                     <p>{review.email}</p>
                                     <p>
                                         <span className="text-yellow-500 text-xl">★ </span>
-                                        <span>{review.stars}</span>
+                                        <span>{review.stars.toFixed(1)}</span>
                                     </p>
                                     <p>{review.comment}</p>
                                 </div>

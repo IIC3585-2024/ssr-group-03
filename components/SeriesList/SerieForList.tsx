@@ -10,7 +10,7 @@ export default function SerieForList({ serie }: { serie: Serie }) {
                     <p>{serie.description}</p>
                     <p>
                         <span className="text-yellow-500">★ </span> 
-                        <span>{serie.stars} </span> 
+                        <span>{serie.stars.toFixed(1)} </span> 
                         <span className="text-gray-500">({serie.n_reviews})</span>
                     </p>
                 </div>
