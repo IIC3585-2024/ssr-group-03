@@ -1,19 +1,9 @@
 'use client';
 
-interface Serie {
-  id: string;
-  name: string;
-  streaming_service: string;
-  category: string;
-  image: string;
-  description: string;
-  stars: number;
-  n_reviews: number;
-}
-
 import { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
 import SerieForList from "@/components/SeriesList/SerieForList";
+import Serie from "@/types/Serie";
 
 const supabase = createClient();
 

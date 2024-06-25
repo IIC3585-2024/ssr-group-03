@@ -1,10 +1,5 @@
-interface Serie {
-    name: string;
-    image: string;
-    description: string;
-    stars: number;
-    n_reviews: number;
-}
+import Link from "next/link";
+import Serie from "@/types/Serie";
 
 export default function SerieForList({ serie }: { serie: Serie }) {
     return (
