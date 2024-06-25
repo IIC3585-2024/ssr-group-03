@@ -23,10 +23,20 @@ export default async function SeriePage({
         .eq('id', searchParams.id)
         .single();
 
-    const { data: reviews } = await supabase
-        .from('reviews')
-        .select('*')
-        .eq('serie_id', searchParams.id);
+    const { data: profiles } = await supabase
+        .from('profiles')
+        .select(`
+            *,
+            reviews ( * )
+        `)
+        .eq('reviews.serie_id', searchParams.id);
+
+    const reviews = profiles.flatMap(profile => 
+        profile.reviews.map(review => ({
+            ...review,
+            email: profile.email,
+        }))
+    );
 
     return (
         <div className="flex-1 w-full flex flex-col gap-20 items-center">
@@ -54,7 +64,7 @@ export default async function SeriePage({
                 <div className="flex flex-col gap-8">
                     {reviews.map((review) => (
                         <div key={review.id} className="flex flex-col gap-2">
-                            <h3 className="text-xl">{review.user_id}</h3>
+                            <h3 className="text-xl">{review.email}</h3>
                             <p>{review.comment}</p>
                             <p>
                                 <span className="text-yellow-500">★ </span> 
