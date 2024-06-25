@@ -5,10 +5,8 @@
 - Alejandro Plaza
 - Juan Pablo Vergara Lobos
 
-## Como correr
+## Ver app
 
-En root
-`npm i`
-`npm run start`
+Se puede ver en el [deploy](https://ssr-group-03-nd3u.vercel.app/) a Vercel linkeado al Fork de nuestro [repo personal](https://github.com/Benyo27/ssr-group-03)
 
-## .env...
+
