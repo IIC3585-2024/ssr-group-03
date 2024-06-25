@@ -55,12 +55,12 @@ export default function SeriesList() {
     <div className="flex flex-col gap-12">
       <div>
         <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6 w-full"
+          className="rounded-md px-4 py-2 bg-inherit border mb-5 w-full"
           placeholder="Filtrar por nombre"
           value={filterName}
           onChange={(e) => setFilterName(e.target.value)}
         />
-        <div className="flex gap-10">
+        <div className="flex flex-col md:flex-row gap-5">
           <select className="rounded-md px-2 py-2 bg-inherit border w-full" onChange={(e) => setFilterStreamingService(e.target.value)} value={filterStreamingService}> 
             <option value="">Servicio de Streaming</option>
             <option value="Netflix">Netflix</option>
